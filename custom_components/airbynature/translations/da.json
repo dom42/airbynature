@@ -1,0 +1,37 @@
+{
+    "config": {
+        "flow_title": "Login to create network",
+        "abort": {
+            "already_configured": "You can only have one network"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect, invalid user/password",
+            "invalid_auth": "Invalid authentication",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "email": "AirByNaure email account",
+                    "password": "password",
+                }
+            }
+        }
+    },
+    "options": {
+      "flow_title": "Select entities to send to Wappsto",
+      "error": {
+        "unknown": "Something went wrong"
+      },
+      "step": {
+        "user": {
+          "title": "Test user title",
+          "data": {
+          },
+          "description": "user description"
+        }
+      }
+    }
+
+}
