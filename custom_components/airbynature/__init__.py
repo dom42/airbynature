@@ -21,27 +21,27 @@ async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     """Set up this integration using YAML is not supported."""
     return True
 
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Set up this integration using UI."""
-    conf = entry.data
-    options = entry.options
+# async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
+#     """Set up this integration using UI."""
+#     conf = entry.data
+#     options = entry.options
 
-    _LOGGER.info("Async_setup_entry")
-    # _LOGGER.warning("Configuration received: %s", conf)
+#     _LOGGER.info("Async_setup_entry")
+#     # _LOGGER.warning("Configuration received: %s", conf)
 
-     if hass.data.get(DOMAIN) is None:
-        hass.data.setdefault(DOMAIN, {})
+#      if hass.data.get(DOMAIN) is None:
+#         hass.data.setdefault(DOMAIN, {})
     
-    _LOGGER.info("STARTUP config: [%s]", entry.options)
+#     _LOGGER.info("STARTUP config: [%s]", entry.options)
 
 
- async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Handle removal of an entry."""
-    _LOGGER.info("Async_unload_entry")
+#  async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+#     """Handle removal of an entry."""
+#     _LOGGER.info("Async_unload_entry")
 
 
-async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
-    """Reload config entry."""
-    _LOGGER.info("Async_reload_entry")
-    await async_unload_entry(hass, entry)
-    await async_setup_entry(hass, entry)
+# async def async_reload_entry(hass: HomeAssistant, entry: ConfigEntry) -> None:
+#     """Reload config entry."""
+#     _LOGGER.info("Async_reload_entry")
+#     await async_unload_entry(hass, entry)
+#     await async_setup_entry(hass, entry)
