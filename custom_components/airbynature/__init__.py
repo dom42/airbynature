@@ -15,7 +15,7 @@ from .const import (
     DOMAIN,
     )
 
-_LOGGER = logging.getLogger(__name__)
+#_LOGGER = logging.getLogger(__name__)
 
 async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     """Set up this integration using YAML is not supported."""
