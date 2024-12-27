@@ -42,7 +42,7 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ):
     _LOGGER.error("Asyc setup_entry")
-    coordinator: AirByNatureCoordinator = hass.data[DOMAIN][
-        config_entry.entry_id
-    ].coordinator
+#    coordinator: AirByNatureCoordinator = hass.data[DOMAIN][
+#        config_entry.entry_id
+#    ].coordinator
     _LOGGER.error("Asyc setup_entry")
