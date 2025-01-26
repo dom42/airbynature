@@ -11,6 +11,7 @@ from homeassistant.exceptions import HomeAssistantError
 
 from .coordinator import AirByNatureCoordinator
 
+type AirByNatureConfigEntry = ConfigEntry[AirByNatureCoordinator]
 
 from .const import DOMAIN
 
@@ -18,7 +19,9 @@ PLATFORMS: list[Platform] = [Platform.SENSOR]
 
 
 # TODO Update entry annotation
-async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> bool:
+async def async_setup_entry(
+    hass: HomeAssistant, config_entry: AirByNatureConfigEntry
+) -> bool:
     """Set up AirByNature from a config entry."""
 
     """Use config values to set up a function enabling status retrieval."""
@@ -38,7 +41,9 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry) -> b
 
 
 # TODO Update entry annotation
-async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
+async def async_unload_entry(
+    hass: HomeAssistant, entry: AirByNatureConfigEntry
+) -> bool:
     """Unload a config entry."""
     # return await hass.config_entries.async_unload_platforms(entry, PLATFORMS)
     return True

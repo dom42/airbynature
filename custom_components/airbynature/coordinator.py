@@ -47,6 +47,19 @@ class AirByNatureCoordinator(DataUpdateCoordinator):
 
         self.api = AirByNatureApi(hass)
 
+    @property
+    def device_info(self) -> DeviceInfo:
+        """Return the DeviceInfo."""
+        _LOGGER.error("TESTING DEVICE INFO")
+        return DeviceInfo(
+            identifiers={(DOMAIN, self.config_entry.entry_id)},
+            model="Device model",
+            manufacturer="AirByNature",
+            name="Device name",
+            hw_version="Device hw version",
+            sw_version="Device sw version",
+        )
+
     async def _async_setup(self):
         """Set up the coordinator.
 
@@ -66,4 +79,5 @@ class AirByNatureCoordinator(DataUpdateCoordinator):
         so entities can quickly look up their data.
         """
         _LOGGER.info("_async_update_data")
-        await self.api.get_data()
+        data = await self.api.get_data()
+        return data

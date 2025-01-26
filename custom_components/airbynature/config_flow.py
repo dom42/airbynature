@@ -56,6 +56,7 @@ async def validate_input(hass: HomeAssistant, data: dict[str, Any]) -> dict[str,
     devices = await hass.async_add_executor_job(abn.get_devices)
     dev_name = devices["data"]["address"]
 
+    _LOGGER.info("Testing device name: " + dev_name)
     # Return info that you want to store in the config entry.
     return {"title": dev_name}
 

@@ -35,6 +35,7 @@ class AirByNatureApi:
     async def get_data(self):
         devices = await self.hass.async_add_executor_job(self.abn.get_devices)
         _LOGGER.info(devices)
+        return devices
 
 
 class InvalidAuth(HomeAssistantError):

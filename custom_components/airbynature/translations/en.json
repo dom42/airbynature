@@ -17,5 +17,25 @@
                 }
             }
         }
+    },
+    "entity": {
+        "sensor": {
+            "outside_temperature": {
+                "name": "External temperature"
+            },
+            "inlet_temperature": {
+                "name": "Inlet temperature"
+            },
+            "inlet_humidity": {
+                "name": "Inlet humidity"
+            },
+            "inlet_fan1_rpm": {
+                "name": "Inlet fan 1 speed"
+            },
+            "outlet_fan1_rpm": {
+                "name": "Outlet fan 1 speed"
+            }
+        }
     }
 }
+
