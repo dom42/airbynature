@@ -255,16 +255,3 @@ class AirByNature:
     def set_stopPause(self):
         self.set_pause_for_hours(0)
 
-
-if __name__ == "__main__":
-    _LOGGER.info("testing")
-    abn = AirByNature()
-    abn.login("karsten@tonnet.dk", "hoshah60")
-
-    abn.get_profile_id()
-    abn.get_devices()
-    abn.set_level(3)
-
-    abn.set_target_temperature(23)
-
-    abn.set_pause_for_hours(0)
