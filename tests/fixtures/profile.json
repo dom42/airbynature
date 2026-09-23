@@ -1,0 +1,1 @@
+{"data": {"id": 10, "firstname": "", "email": "user@example.com", "phonenr": null, "lastname": null, "is_admin": false}, "meta": {"permissions": {"all": false, "isSuperAdmin": false, "hasAccessToAdminPanel": false}}}

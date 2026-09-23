@@ -1,16 +1,12 @@
 {
   "domain": "airbynature",
   "name": "AirByNature",
-  "codeowners": [
-    "@dom42"
-  ],
+  "codeowners": ["@dom42"],
   "config_flow": true,
-  "dependencies": [],
-  "documentation": "https://github.com/dom42/airbynature/",
-  "homekit": {},
+  "documentation": "https://github.com/dom42/airbynature",
+  "integration_type": "hub",
   "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/dom42/airbynature/issues",
   "requirements": [],
-  "ssdp": [],
-  "zeroconf": [],
-  "version": "0.0.1"
+  "version": "0.1.0"
 }

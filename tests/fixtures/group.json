@@ -1,0 +1,71 @@
+{
+  "data": {
+    "id": 100,
+    "name": "Test User",
+    "address": "Testvej 1",
+    "postcode": "1000",
+    "city": "Testby",
+    "target_temperature": 23,
+    "current_running_rule": "Svale 1 - Fugt 1 (>55%)",
+    "is_rule_enabled": 1,
+    "mode": "comfort",
+    "pause_until": null,
+    "pause_inlets_until": null,
+    "pause_time": [{"active": false, "day": 1, "start_time": "10:00", "end_time": "15:00"}],
+    "avg_temp": "25.90",
+    "is_drying": 0,
+    "status": "ok",
+    "schedule": null,
+    "devices": [
+      {
+        "id": 200,
+        "group_id": 100,
+        "name": "Loftanlæg",
+        "type": "main-v2",
+        "outlet_speed_factor": "65.00",
+        "inlet_speed_factor": "55.00",
+        "has_filter": 1,
+        "comfort_level": 3,
+        "use_for_avg_temp": 1,
+        "is_online": true,
+        "wifi_signal": 28,
+        "dry_heat_exchanger_until": null,
+        "is_drying_heat_exchanger": false,
+        "current_interval": 60,
+        "serial_number": null,
+        "last_handshake_at": null,
+        "latest_history": {
+          "device_id": 200,
+          "inlet_temp": 23.89,
+          "inlet_humid": 60.3,
+          "inlet_fan": 0,
+          "inlet_fan1_rpm": 0,
+          "inlet_fan2_rpm": 0,
+          "outlet_temp": 25.9,
+          "outlet_humid": 55.3,
+          "outlet_co2": 440.3,
+          "outlet_fan": 74,
+          "outlet_tvoc": 46.9,
+          "outlet_fan1_rpm": 3617,
+          "outlet_fan2_rpm": 0,
+          "external_temp": 24.97,
+          "created_at": "2024-09-24T16:00:28.000000Z"
+        },
+        "latest_diagnostic": {"device_id": 200, "wifi_signal": "30", "created_at": "2024-09-24T16:00:19.000000Z"}
+      }
+    ],
+    "users": [{"id": 10, "firstname": "", "email": "user@example.com", "phonenr": null, "lastname": null, "is_admin": false}]
+  },
+  "meta": {
+    "permissions": {
+      "canChangeTemperature": true,
+      "canChangeMode": false,
+      "canChangeAirCirculationLevel": true,
+      "canChangeSchedule": true,
+      "canViewHistory": true,
+      "canAdministerDeviceGroup": false,
+      "canAccessDeviceGroup": true,
+      "canPauseInlets": true
+    }
+  }
+}

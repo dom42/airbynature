@@ -5,3 +5,6 @@ venv
 .coverage
 .idea
 .storage
+notes_donot_commit.txt
+*.backup
+.pytest_cache
