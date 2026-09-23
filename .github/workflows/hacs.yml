@@ -1,0 +1,15 @@
+name: HACS validation
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  hacs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hacs/action@main
+        with:
+          category: integration
+          # Brand icon is a follow-up PR to home-assistant/brands.
+          ignore: brands

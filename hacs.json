@@ -1,7 +1,5 @@
 {
-    "name": "AirByNature",
-    "render_readme": true,
-    "iot_class": "cloud_pull",
-    "homeassistant": "2023.4.0",
-    "zip_release": false
+  "name": "AirByNature",
+  "render_readme": true,
+  "homeassistant": "2025.1.0"
 }
