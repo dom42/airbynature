@@ -11,7 +11,7 @@ from .api import AirByNatureClient
 from .coordinator import AirByNatureConfigEntry, AirByNatureCoordinator
 from .entity import group_device_info
 
-PLATFORMS: list[Platform] = [Platform.SENSOR]
+PLATFORMS: list[Platform] = [Platform.BINARY_SENSOR, Platform.SENSOR]
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: AirByNatureConfigEntry) -> bool:
