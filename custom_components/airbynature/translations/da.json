@@ -1,21 +1,88 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Device is already configured"
-        },
-        "error": {
-            "cannot_connect": "Failed to connect",
-            "invalid_auth": "Invalid authentication",
-            "unknown": "Unexpected error"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host",
-                    "password": "Password",
-                    "username": "Username"
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "title": "Log ind på AirByNature",
+        "description": "Brug e-mail og adgangskode fra AirByNature-appen.",
+        "data": {
+          "username": "E-mail",
+          "password": "Adgangskode"
         }
+      },
+      "reauth_confirm": {
+        "title": "Log ind på AirByNature igen",
+        "description": "Adgangskoden for {username} er ikke længere gyldig. Indtast den nuværende adgangskode.",
+        "data": {
+          "password": "Adgangskode"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Forkert e-mail eller adgangskode.",
+      "cannot_connect": "Kan ikke forbinde til AirByNature.",
+      "unknown": "Uventet fejl."
+    },
+    "abort": {
+      "already_configured": "Denne AirByNature-konto er allerede konfigureret.",
+      "reauth_successful": "Du er logget ind igen.",
+      "wrong_account": "Loginoplysningerne tilhører en anden AirByNature-konto."
     }
+  },
+  "entity": {
+    "sensor": {
+      "avg_temperature": { "name": "Gennemsnitstemperatur" },
+      "mode": { "name": "Tilstand" },
+      "current_rule": { "name": "Aktiv regel" },
+      "pause_inlets_until": { "name": "Indblæsning pauset til" },
+      "pause_until": { "name": "Pauset til" },
+      "status": { "name": "Status" },
+      "inlet_temperature": { "name": "Indblæsningstemperatur" },
+      "outlet_temperature": { "name": "Udsugningstemperatur" },
+      "external_temperature": { "name": "Udetemperatur" },
+      "inlet_humidity": { "name": "Indblæsningsfugtighed" },
+      "outlet_humidity": { "name": "Udsugningsfugtighed" },
+      "co2": { "name": "CO2" },
+      "tvoc": { "name": "TVOC" },
+      "inlet_fan": { "name": "Indblæsningsventilator" },
+      "outlet_fan": { "name": "Udsugningsventilator" },
+      "inlet_fan1_rpm": { "name": "Indblæsningsventilator 1 hastighed" },
+      "outlet_fan1_rpm": { "name": "Udsugningsventilator 1 hastighed" },
+      "inlet_fan2_rpm": { "name": "Indblæsningsventilator 2 hastighed" },
+      "outlet_fan2_rpm": { "name": "Udsugningsventilator 2 hastighed" },
+      "last_measurement": { "name": "Seneste måling" },
+      "wifi_signal": { "name": "Wi-Fi-signal" },
+      "inlet_speed_factor": { "name": "Indblæsningshastighedsfaktor" },
+      "outlet_speed_factor": { "name": "Udsugningshastighedsfaktor" },
+      "interval": { "name": "Måleinterval" }
+    },
+    "binary_sensor": {
+      "rule_enabled": { "name": "Regel aktiveret" },
+      "drying": { "name": "Tørring" },
+      "online": { "name": "Online" },
+      "filter": { "name": "Filter" },
+      "drying_heat_exchanger": { "name": "Tørrer varmeveksler" }
+    },
+    "number": {
+      "target_temperature": { "name": "Måltemperatur" },
+      "pause_inlets": { "name": "Pause indblæsning" }
+    },
+    "select": {
+      "comfort_level": {
+        "name": "Komfortniveau",
+        "state": {
+          "off": "Slukket",
+          "very_quiet": "Meget stille",
+          "quiet": "Stille",
+          "normal": "Normal",
+          "high": "Høj",
+          "extra_high": "Ekstra høj"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "command_failed": {
+      "message": "AirByNature afviste kommandoen: {error}"
+    }
+  }
 }

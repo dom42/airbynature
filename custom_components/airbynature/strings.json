@@ -2,27 +2,87 @@
   "config": {
     "step": {
       "user": {
+        "title": "Sign in to AirByNature",
+        "description": "Use the e-mail and password from the AirByNature app.",
         "data": {
-          "host": "[%key:common::config_flow::data::host%]",
-          "username": "[%key:common::config_flow::data::username%]",
-          "password": "[%key:common::config_flow::data::password%]"
+          "username": "E-mail",
+          "password": "Password"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate AirByNature",
+        "description": "The password for {username} is no longer valid. Enter the current password.",
+        "data": {
+          "password": "Password"
         }
       }
     },
     "error": {
-      "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
-      "invalid_auth": "[%key:common::config_flow::error::invalid_auth%]",
-      "unknown": "[%key:common::config_flow::error::unknown%]"
+      "invalid_auth": "Invalid e-mail or password.",
+      "cannot_connect": "Cannot connect to the AirByNature service.",
+      "unknown": "Unexpected error."
     },
     "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_device%]"
+      "already_configured": "This AirByNature account is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "wrong_account": "The credentials belong to a different AirByNature account."
     }
   },
   "entity": {
     "sensor": {
-      "outside_temperature": {
-        "name": "External Temperature"
+      "avg_temperature": { "name": "Average temperature" },
+      "mode": { "name": "Mode" },
+      "current_rule": { "name": "Current rule" },
+      "pause_inlets_until": { "name": "Inlets paused until" },
+      "pause_until": { "name": "Paused until" },
+      "status": { "name": "Status" },
+      "inlet_temperature": { "name": "Inlet temperature" },
+      "outlet_temperature": { "name": "Outlet temperature" },
+      "external_temperature": { "name": "Outdoor temperature" },
+      "inlet_humidity": { "name": "Inlet humidity" },
+      "outlet_humidity": { "name": "Outlet humidity" },
+      "co2": { "name": "CO2" },
+      "tvoc": { "name": "TVOC" },
+      "inlet_fan": { "name": "Inlet fan" },
+      "outlet_fan": { "name": "Outlet fan" },
+      "inlet_fan1_rpm": { "name": "Inlet fan 1 speed" },
+      "outlet_fan1_rpm": { "name": "Outlet fan 1 speed" },
+      "inlet_fan2_rpm": { "name": "Inlet fan 2 speed" },
+      "outlet_fan2_rpm": { "name": "Outlet fan 2 speed" },
+      "last_measurement": { "name": "Last measurement" },
+      "wifi_signal": { "name": "Wi-Fi signal" },
+      "inlet_speed_factor": { "name": "Inlet speed factor" },
+      "outlet_speed_factor": { "name": "Outlet speed factor" },
+      "interval": { "name": "Measurement interval" }
+    },
+    "binary_sensor": {
+      "rule_enabled": { "name": "Rule enabled" },
+      "drying": { "name": "Drying" },
+      "online": { "name": "Online" },
+      "filter": { "name": "Filter" },
+      "drying_heat_exchanger": { "name": "Drying heat exchanger" }
+    },
+    "number": {
+      "target_temperature": { "name": "Target temperature" },
+      "pause_inlets": { "name": "Pause inlets" }
+    },
+    "select": {
+      "comfort_level": {
+        "name": "Comfort level",
+        "state": {
+          "off": "Off",
+          "very_quiet": "Very quiet",
+          "quiet": "Quiet",
+          "normal": "Normal",
+          "high": "High",
+          "extra_high": "Extra high"
+        }
       }
+    }
+  },
+  "exceptions": {
+    "command_failed": {
+      "message": "AirByNature rejected the command: {error}"
     }
   }
 }

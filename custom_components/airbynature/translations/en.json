@@ -1,41 +1,88 @@
 {
-    "config": {
-        "abort": {
-            "already_configured": "Device is already configured"
-        },
-        "error": {
-            "cannot_connect": "Failed to connect",
-            "invalid_auth": "Invalid authentication",
-            "unknown": "Unexpected error"
-        },
-        "step": {
-            "user": {
-                "data": {
-                    "host": "Host",
-                    "password": "Password",
-                    "username": "Username"
-                }
-            }
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sign in to AirByNature",
+        "description": "Use the e-mail and password from the AirByNature app.",
+        "data": {
+          "username": "E-mail",
+          "password": "Password"
         }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate AirByNature",
+        "description": "The password for {username} is no longer valid. Enter the current password.",
+        "data": {
+          "password": "Password"
+        }
+      }
     },
-    "entity": {
-        "sensor": {
-            "outside_temperature": {
-                "name": "External temperature"
-            },
-            "inlet_temperature": {
-                "name": "Inlet temperature"
-            },
-            "inlet_humidity": {
-                "name": "Inlet humidity"
-            },
-            "inlet_fan1_rpm": {
-                "name": "Inlet fan 1 speed"
-            },
-            "outlet_fan1_rpm": {
-                "name": "Outlet fan 1 speed"
-            }
-        }
+    "error": {
+      "invalid_auth": "Invalid e-mail or password.",
+      "cannot_connect": "Cannot connect to the AirByNature service.",
+      "unknown": "Unexpected error."
+    },
+    "abort": {
+      "already_configured": "This AirByNature account is already configured.",
+      "reauth_successful": "Re-authentication was successful.",
+      "wrong_account": "The credentials belong to a different AirByNature account."
     }
+  },
+  "entity": {
+    "sensor": {
+      "avg_temperature": { "name": "Average temperature" },
+      "mode": { "name": "Mode" },
+      "current_rule": { "name": "Current rule" },
+      "pause_inlets_until": { "name": "Inlets paused until" },
+      "pause_until": { "name": "Paused until" },
+      "status": { "name": "Status" },
+      "inlet_temperature": { "name": "Inlet temperature" },
+      "outlet_temperature": { "name": "Outlet temperature" },
+      "external_temperature": { "name": "Outdoor temperature" },
+      "inlet_humidity": { "name": "Inlet humidity" },
+      "outlet_humidity": { "name": "Outlet humidity" },
+      "co2": { "name": "CO2" },
+      "tvoc": { "name": "TVOC" },
+      "inlet_fan": { "name": "Inlet fan" },
+      "outlet_fan": { "name": "Outlet fan" },
+      "inlet_fan1_rpm": { "name": "Inlet fan 1 speed" },
+      "outlet_fan1_rpm": { "name": "Outlet fan 1 speed" },
+      "inlet_fan2_rpm": { "name": "Inlet fan 2 speed" },
+      "outlet_fan2_rpm": { "name": "Outlet fan 2 speed" },
+      "last_measurement": { "name": "Last measurement" },
+      "wifi_signal": { "name": "Wi-Fi signal" },
+      "inlet_speed_factor": { "name": "Inlet speed factor" },
+      "outlet_speed_factor": { "name": "Outlet speed factor" },
+      "interval": { "name": "Measurement interval" }
+    },
+    "binary_sensor": {
+      "rule_enabled": { "name": "Rule enabled" },
+      "drying": { "name": "Drying" },
+      "online": { "name": "Online" },
+      "filter": { "name": "Filter" },
+      "drying_heat_exchanger": { "name": "Drying heat exchanger" }
+    },
+    "number": {
+      "target_temperature": { "name": "Target temperature" },
+      "pause_inlets": { "name": "Pause inlets" }
+    },
+    "select": {
+      "comfort_level": {
+        "name": "Comfort level",
+        "state": {
+          "off": "Off",
+          "very_quiet": "Very quiet",
+          "quiet": "Quiet",
+          "normal": "Normal",
+          "high": "High",
+          "extra_high": "Extra high"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "command_failed": {
+      "message": "AirByNature rejected the command: {error}"
+    }
+  }
 }
-

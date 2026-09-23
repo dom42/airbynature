@@ -1,0 +1,35 @@
+{
+  "entity": {
+    "sensor": {
+      "mode": { "default": "mdi:tune" },
+      "current_rule": { "default": "mdi:script-text-outline" },
+      "pause_inlets_until": { "default": "mdi:pause-circle-outline" },
+      "pause_until": { "default": "mdi:pause-circle-outline" },
+      "status": { "default": "mdi:information-outline" },
+      "inlet_fan": { "default": "mdi:fan" },
+      "outlet_fan": { "default": "mdi:fan" },
+      "inlet_fan1_rpm": { "default": "mdi:fan" },
+      "outlet_fan1_rpm": { "default": "mdi:fan" },
+      "inlet_fan2_rpm": { "default": "mdi:fan" },
+      "outlet_fan2_rpm": { "default": "mdi:fan" },
+      "wifi_signal": { "default": "mdi:wifi" },
+      "inlet_speed_factor": { "default": "mdi:speedometer" },
+      "outlet_speed_factor": { "default": "mdi:speedometer" }
+    },
+    "binary_sensor": {
+      "rule_enabled": { "default": "mdi:script-text-outline" },
+      "drying": { "default": "mdi:water-off-outline" },
+      "filter": { "default": "mdi:air-filter" },
+      "drying_heat_exchanger": { "default": "mdi:heat-wave" }
+    },
+    "number": {
+      "pause_inlets": { "default": "mdi:pause-circle-outline" }
+    },
+    "select": {
+      "comfort_level": {
+        "default": "mdi:fan",
+        "state": { "off": "mdi:fan-off" }
+      }
+    }
+  }
+}
