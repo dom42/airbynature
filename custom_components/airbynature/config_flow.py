@@ -91,9 +91,12 @@ class AirByNatureConfigFlow(ConfigFlow, domain=DOMAIN):
             )
             if user_id is not None:
                 await self.async_set_unique_id(str(user_id))
-                self._abort_if_unique_id_mismatch(reason="wrong_account")
+                # Entries created by 0.0.1 have no unique_id; adopt it instead.
+                if reauth_entry.unique_id is not None:
+                    self._abort_if_unique_id_mismatch(reason="wrong_account")
                 return self.async_update_reload_and_abort(
                     reauth_entry,
+                    unique_id=str(user_id),
                     data_updates={CONF_PASSWORD: user_input[CONF_PASSWORD]},
                 )
         return self.async_show_form(

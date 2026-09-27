@@ -151,6 +151,23 @@ async def test_reauth_wrong_account(
     assert mock_config_entry.data[CONF_PASSWORD] == "secret"
 
 
+async def test_reauth_legacy_entry_without_unique_id(
+    hass: HomeAssistant, mock_flow_client: MagicMock, mock_setup_entry: AsyncMock
+) -> None:
+    legacy_entry = MockConfigEntry(domain=DOMAIN, title="Testvej 1", data=USER_INPUT)
+    legacy_entry.add_to_hass(hass)
+    result = await legacy_entry.start_reauth_flow(hass)
+
+    result = await hass.config_entries.flow.async_configure(
+        result["flow_id"], {CONF_PASSWORD: "new-secret"}
+    )
+
+    assert result["type"] is FlowResultType.ABORT
+    assert result["reason"] == "reauth_successful"
+    assert legacy_entry.unique_id == "10"
+    assert legacy_entry.data[CONF_PASSWORD] == "new-secret"
+
+
 async def test_auth_failure_during_setup_starts_reauth(
     hass: HomeAssistant, mock_config_entry: MockConfigEntry, mock_client: MagicMock
 ) -> None:
