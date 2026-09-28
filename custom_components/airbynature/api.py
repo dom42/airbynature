@@ -111,7 +111,7 @@ class AirByNatureClient:
     async def async_set_comfort_level(
         self, group_id: int, unit_id: int, level: int
     ) -> None:
-        """Set the comfort level (1-6) of one unit."""
+        """Set the comfort level (0-5) of one unit."""
         await self._request(
             "PATCH",
             f"/api/user-app/devicegroups/{group_id}/devices/{unit_id}",

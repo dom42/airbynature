@@ -13,7 +13,7 @@ from .entity import AirByNatureUnitEntity, call_api
 
 PARALLEL_UPDATES = 1
 
-# Position + 1 is the API comfort level (1 = off ... 6 = extra high).
+# Position is the API comfort level (0 = off ... 5 = extra high).
 COMFORT_LEVELS: Final = ["off", "very_quiet", "quiet", "normal", "high", "extra_high"]
 
 
@@ -45,14 +45,14 @@ class AirByNatureComfortLevelSelect(AirByNatureUnitEntity, SelectEntity):
     @property
     def current_option(self) -> str | None:
         level = self.unit.comfort_level
-        if level is None or not 1 <= level <= len(COMFORT_LEVELS):
+        if level is None or not 0 <= level < len(COMFORT_LEVELS):
             return None
-        return COMFORT_LEVELS[level - 1]
+        return COMFORT_LEVELS[level]
 
     async def async_select_option(self, option: str) -> None:
         await call_api(
             self.coordinator.client.async_set_comfort_level(
-                self.group_id, self.unit_id, COMFORT_LEVELS.index(option) + 1
+                self.group_id, self.unit_id, COMFORT_LEVELS.index(option)
             )
         )
         await self.coordinator.async_request_refresh()

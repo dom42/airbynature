@@ -38,7 +38,7 @@ async def test_comfort_level_state(
 ) -> None:
     state = hass.states.get(entity_id(hass, "select", "200_comfort_level"))
 
-    assert state.state == "quiet"
+    assert state.state == "normal"
     assert state.attributes["options"] == [
         "off",
         "very_quiet",
@@ -57,19 +57,19 @@ async def test_select_comfort_level(
     await _select(hass, entity, "high")
     await hass.async_block_till_done()
 
-    mock_client.async_set_comfort_level.assert_awaited_once_with(100, 200, 5)
+    mock_client.async_set_comfort_level.assert_awaited_once_with(100, 200, 4)
     assert mock_client.async_get_groups.await_count == 2
 
 
-async def test_select_off_sends_level_one(
+async def test_select_off_sends_level_zero(
     hass: HomeAssistant, init_integration: MockConfigEntry, mock_client: MagicMock
 ) -> None:
     await _select(hass, entity_id(hass, "select", "200_comfort_level"), "off")
 
-    mock_client.async_set_comfort_level.assert_awaited_once_with(100, 200, 1)
+    mock_client.async_set_comfort_level.assert_awaited_once_with(100, 200, 0)
 
 
-@pytest.mark.parametrize("level", [None, 0, 7])
+@pytest.mark.parametrize("level", [None, -1, 6])
 async def test_comfort_level_out_of_range(
     hass: HomeAssistant,
     mock_config_entry: MockConfigEntry,
